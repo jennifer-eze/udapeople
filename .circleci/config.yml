@@ -27,8 +27,19 @@ jobs:
       - image: circleci/node:12.18.4
     steps:
       - checkout
-      - run: npm i
-      - run: npm run build
+      - restore_cache:
+          keys:
+              - [frontend-build]
+      - run: 
+          name: Frontend build
+          command: |
+            cd frondend
+            npm i
+            npm run build
+      - save_cache:
+            paths:
+                - [frontend/node_modules]
+            key: frontend-build
 
   build-backend:
     docker:
