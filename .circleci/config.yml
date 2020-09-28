@@ -30,7 +30,7 @@ jobs:
       - run: npm i
       - run: npm run build
 
-  build-frontend:
+  build-backend:
     docker:
       - image: amazon/aws-cli
     steps:
