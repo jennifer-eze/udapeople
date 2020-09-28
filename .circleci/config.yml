@@ -24,18 +24,18 @@ jobs:
 
   build-frontend:
     docker:
-      - image: amazon/aws-cli
+      - image: circleci/node:12.18.4
     steps:
       - checkout
-      # - run: npm i
+      - run: npm i
       - run: npm run build
 
   build-backend:
     docker:
-      - image: amazon/aws-cli
+      - image: circleci/node:12.18.4
     steps:
       - checkout
-      # - run: npm i
+      - run: npm i
       - run: npm run build
 
 #  test-frontend:
