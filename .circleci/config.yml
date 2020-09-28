@@ -33,7 +33,7 @@ jobs:
       - run: 
           name: Frontend build
           command: |
-            cd frondend
+            cd frontend
             npm i
             npm run build
       - save_cache:
@@ -46,8 +46,19 @@ jobs:
       - image: circleci/node:12.18.4
     steps:
       - checkout
-      - run: npm i
-      - run: npm run build
+      - restore_cache:
+          keys:
+              - [backend-build]
+      - run: 
+          name: Backend build
+          command: |
+            cd backend
+            npm i
+            npm run build
+      - save_cache:
+            paths:
+                - [backend/node_modules]
+            key: backend-build
 
 #  test-frontend:
 
