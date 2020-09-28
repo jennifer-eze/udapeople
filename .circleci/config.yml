@@ -27,7 +27,7 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-      - run: npm i
+      # - run: npm i
       - run: npm run build
 
   build-backend:
@@ -35,7 +35,7 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-      - run: npm i
+      # - run: npm i
       - run: npm run build
 
 #  test-frontend:
